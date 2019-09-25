@@ -20,7 +20,7 @@ public class CoinService {
     MarketRepository marketRepository;
     public List<CoinDTO> getList(String nameSearch,int marketId) {
         List<Coin> coins = null;
-        if (nameSearch != null){
+        if (nameSearch != null && !nameSearch.isEmpty()){
             coins =  coinRepository.findWithSearchName(nameSearch);
         }else if(marketId != -1){
             Market market = marketRepository.findById(marketId).orElse(null);

@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CoinRepository  extends JpaRepository<Coin, Integer>{
-    @Query("select c from Coin as c where c.name = :key")
+    @Query("select c from Coin as c where c.name = :keySearch")
     List<Coin> findWithSearchName(@Param("keySearch") String key);
     List<Coin> findAllByMarketEquals(Market market);
 }
